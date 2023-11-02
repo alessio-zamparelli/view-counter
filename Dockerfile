@@ -36,7 +36,7 @@ COPY --from=prerelease /usr/src/app/package.json .
 ENV NODE_ENV production
 
 # run the app
-USER bun
+# USER bun
 EXPOSE 3000/tcp
 VOLUME /data
 ENTRYPOINT [ "bun", "run", "server.js" ]
