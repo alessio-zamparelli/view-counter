@@ -26,22 +26,21 @@ const app = new Elysia()
 	})
 	.onStart(() => {
 		db.exec("PRAGMA journal_mode = WAL;")
+		console.log(
+			`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
+		)
 	})
 	.onStop(() => {
 		db.close()
 	})
 	.get("/", () => {
-		return "Hello !"
+		return "use as: https://counter.aeng.it/<name(unique)>/svg"
 	})
-	.get("/:slug/counter.svg", ({ insertVisit, getVisit, params: { slug } }) => {
+	.get("/:slug/svg", ({ insertVisit, getVisit, params: { slug } }) => {
 		const cnt = insertVisit.get({ $slug: slug })
 		return cnt?.visits ? getCounterImage(cnt.visits) : ""
 	})
 
 	.listen(3000)
-
-console.log(
-	`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-)
 
 db.close()
