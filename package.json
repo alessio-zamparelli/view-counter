@@ -1,16 +1,17 @@
 {
-  "name": "view-counter",
-  "version": "1.0.50",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
-  },
-  "dependencies": {
-    "@elysiajs/html": "^0.7.3",
-    "elysia": "latest"
-  },
-  "devDependencies": {
-    "bun-types": "latest"
-  },
-  "module": "src/index.js"
+	"name": "view-counter",
+	"version": "1.0.50",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "bun run --watch src/index.ts",
+		"build": "bun build --target=bun ./src/index.ts --outfile=./dist/server.js"
+	},
+	"dependencies": {
+		"@elysiajs/html": "^0.7.3",
+		"elysia": "latest"
+	},
+	"devDependencies": {
+		"bun-types": "latest"
+	},
+	"module": "src/index.js"
 }
