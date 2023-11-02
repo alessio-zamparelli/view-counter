@@ -8,6 +8,9 @@ const dbPath =
 	process.env.NODE_ENV == "production" ? "/data/db.sqlite" : "./db.sqlite"
 
 const db = Database.open(dbPath, { create: true })
+db.run(
+	"CREATE TABLE IF NOT EXISTS counts (slug text PRIMARY KEY, visits integer)"
+)
 
 const selectStmt = "SELECT slug, visits FROM counts WHERE slug = $slug"
 const insertStmt =
@@ -23,9 +26,6 @@ const app = new Elysia()
 	})
 	.onStart(() => {
 		db.exec("PRAGMA journal_mode = WAL;")
-		db.run(
-			"CREATE TABLE IF NOT EXISTS counts (slug text PRIMARY KEY, visits integer)"
-		)
 	})
 	.onStop(() => {
 		db.close()
