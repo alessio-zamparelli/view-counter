@@ -3,8 +3,8 @@ const LEN = 6
 export function getCounterImage(visits: number) {
 	const visitsString = visits.toString().padStart(LEN, "0").split("")
 
-	return `
-	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="343.22" height="92.34" viewBox="0 0 343.22 92.34">
+	return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="343.22" height="92.34" viewBox="0 0 343.22 92.34">
+  <title>Count</title>
   <defs>
     <filter id="luminosity-noclip" x="44" y="6" width="295" height="94" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feFlood flood-color="#fff" result="bg"/>
