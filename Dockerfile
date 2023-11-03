@@ -1,4 +1,4 @@
-FROM oven/bun as base
+FROM oven/bun:1.0.7 as base
 
 WORKDIR /app
 
@@ -9,7 +9,6 @@ RUN bun install --production
 
 COPY src src
 COPY tsconfig.json .
-
 
 ENV NODE_ENV production
 RUN bun run build
