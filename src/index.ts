@@ -1,5 +1,4 @@
 import { Elysia } from "elysia"
-import { html } from "@elysiajs/html"
 
 import { Database } from "bun:sqlite"
 import { getCounterImage } from "./genImage"
